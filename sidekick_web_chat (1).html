@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sidekick – support for young caregivers</title>
+  <script defer src="https://www.gstatic.com/chat-messenger/sdk/prod/v1.16/chat-messenger.js"></script>
+  <link rel="stylesheet" href="https://www.gstatic.com/chat-messenger/sdk/prod/v1.16/themes/chat-messenger-default.css">
+  <link rel="stylesheet" href="https://www.gstatic.com/chat-messenger/sdk/prod/v1.16/themes/chat-messenger-layout.css">
+  <style>
+    body { margin: 0; font-family: system-ui, -apple-system, "Segoe UI", sans-serif; background: #f6f7fb; color: #1b1b1b; }
+    header { padding: 48px 16px 24px; max-width: 720px; margin: 0 auto; }
+    h1 { font-size: 2rem; margin: 0 0 8px; }
+    p { line-height: 1.5; color: #444; }
+    .hint { font-size: .9rem; color: #666; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Sidekick</h1>
+    <p>A friendly helper for young caregivers in Singapore: money &amp; care services, planning your week, someone to talk to, and support groups.</p>
+    <p class="hint">Click the chat bubble in the bottom-right corner to start. COR2221 AI &amp; Humanity – Team 7.</p>
+  </header>
+
+  <script>
+    window.addEventListener("chat-messenger-loaded", () => {
+      chatSdk.registerContext(
+        chatSdk.prebuilts.ces.createContext({
+          deploymentName: "projects/298137031210/locations/us/apps/3f86ccb7-9b5c-4943-887a-fa9972704137/deployments/3711801a-8e15-4deb-a787-14f5b6f32c98",
+          tokenBroker: { enableTokenBroker: true }
+        }),
+      );
+    });
+  </script>
+  <chat-messenger url-allowlist="*">
+    <chat-messenger-container chat-title="Sidekick" enable-file-upload>
+      <chat-reset-session-button slot="titlebar-actions" title-text="Start new chat"></chat-reset-session-button>
+      <chat-toggle-dialog-button slot="titlebar-actions" title-text-expanded="Collapse" title-text-collapsed="Expand"></chat-toggle-dialog-button>
+      <chat-messenger-close-button slot="titlebar-actions" title-text="Close"></chat-messenger-close-button>
+    </chat-messenger-container>
+  </chat-messenger>
+</body>
+</html>
